@@ -137,7 +137,7 @@ def write_to_csv(url, page_count):
     records = get_all_goods(url, page_count)
 
     with open('products.csv', 'w', encoding='UTF8') as f:
-        w = csv.DictWriter(f, records.keys(), delimiter=';')
+        w = csv.DictWriter(f, records.keys())
         w.writeheader()
         w.writerow(records)
 
