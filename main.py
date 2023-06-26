@@ -116,7 +116,7 @@ def get_goods_from_page(url):
     goods = content.find_all('div', class_='goods-tile preview-product')
     for good in goods:
         name = good.find('span', itemprop='name').text
-        price = good.find('div', class_='price__value').text.replace('\xa0', '')
+        price = good.find('div', class_='price__value').text
         goods_dict[name] = price
 
     return goods_dict
