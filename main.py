@@ -148,11 +148,9 @@ def get_last_page_number(url):
         return 0
 
     all_links = content.find_all('a', class_='page-link')
-    try:
-        max_page_number = all_links[-2].text
-    except IndexError:
-        max_page_number = 1
-    return max_page_number
+    if len(all_links) <= 3:
+        return 1
+    return all_links[-2].text
 
 
 def ui():
